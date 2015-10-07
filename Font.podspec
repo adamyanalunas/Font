@@ -9,22 +9,30 @@
 Pod::Spec.new do |s|
   s.name             = "Font"
   s.version          = "0.1.0"
-  s.summary          = "A short description of Font."
+  s.summary          = "Working with UIFont for custom fonts sucks—especially Dynamic Type. Font makes things easier."
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
 #   * Try to keep it short, snappy and to the point.
 #   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!  
+#   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description      = <<-DESC
+  Custom fonts are great. Swift is pretty great. But UIFont is still stringly-typed. And then there's dealing with Dynamic Type.
+
+  Font allows you to deal with fonts in a strongly-typed manner with no pain when it comes to Dynamic Type.
+
+  * Register your custom font and its sizes
+  * Implement it
+  * Register something to update the font size when the Dynamic Font size changes
+  * Keep being awesome
                        DESC
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/Font"
+  s.homepage         = "https://github.com/adamyanalunas/Font"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
-  s.author           = { "Adam Yanalunas" => "adamy@amcoonline.net" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/Font.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { "Adam Yanalunas" => "adamy@yanalunas.com" }
+  s.source           = { :git => "https://github.com/adamyanalunas/Font.git", :tag => s.version.to_s }
+  # s.social_media_url = 'https://twitter.com/adamyanalunas'
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true

@@ -11,6 +11,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+* Swift
+
 ## Installation
 
 Font is available through [CocoaPods](http://cocoapods.org). To install
@@ -20,9 +22,15 @@ it, simply add the following line to your Podfile:
 pod "Font"
 ```
 
+## Common Problems
+
+### No fonts are being generated
+
+Did you add your fonts to your `Info.plist`? Did you create an extension for `Font` with your custom font rules?
+
 ## Author
 
-Adam Yanalunas, adamy@amcoonline.net
+Adam Yanalunas, adamy@yanalunas.com
 
 ## License
 
