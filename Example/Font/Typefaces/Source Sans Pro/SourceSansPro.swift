@@ -31,7 +31,7 @@ extension Font {
             return "Bold"
             
         case .Black:
-            return "700"
+            return "Black"
         }
     }
     
