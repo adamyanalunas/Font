@@ -30,7 +30,7 @@ Did you add your fonts to your `Info.plist`? Did you create an extension for `Fo
 
 ## Author
 
-Adam Yanalunas, adamy@yanalunas.com
+Adam Yanalunas, adam@yanalunas.com
 
 ## License
 
