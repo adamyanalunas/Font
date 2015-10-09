@@ -79,7 +79,7 @@ public struct Font {
     }
 }
 
-func ==(lhs:Font, rhs:Font) -> Bool {
+public func ==(lhs:Font, rhs:Font) -> Bool {
     return lhs.fontName == rhs.fontName
         && lhs.size == rhs.size
 }

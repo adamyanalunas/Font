@@ -8,7 +8,7 @@
 
 import Font
 
-extension Font {
+public extension Font {
     private static func sourceSansProWeight(weight:FontWeight) -> String {
         switch weight {
         case .Ultralight:
@@ -57,4 +57,3 @@ extension Font {
         return Font(fontName: fontName, size: size)
     }
 }
-
