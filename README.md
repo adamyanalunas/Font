@@ -1,6 +1,6 @@
 # Font
 
-[![CI Status](http://img.shields.io/travis/Adam Yanalunas/Font.svg?style=flat)](https://travis-ci.org/Adam Yanalunas/Font)
+[![CI Status](http://img.shields.io/travis/adamayanlunas/Font.svg?style=flat)](https://travis-ci.org/adamyanalunas/Font)
 [![Version](https://img.shields.io/cocoapods/v/Font.svg?style=flat)](http://cocoapods.org/pods/Font)
 [![License](https://img.shields.io/cocoapods/l/Font.svg?style=flat)](http://cocoapods.org/pods/Font)
 [![Platform](https://img.shields.io/cocoapods/p/Font.svg?style=flat)](http://cocoapods.org/pods/Font)

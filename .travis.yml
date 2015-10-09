@@ -4,6 +4,9 @@
 
 language: objective-c
 osx_image: xcode7
+podfile: Example/Podfile
+before_install:
+- pod install --project-directory=Example
 install:
 - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
 script:
