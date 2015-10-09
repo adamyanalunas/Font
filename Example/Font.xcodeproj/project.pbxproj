@@ -28,7 +28,7 @@
 		667130251BBF497F008FA9D2 /* SourceSansPro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667130241BBF497F008FA9D2 /* SourceSansPro.swift */; settings = {ASSET_TAGS = (); }; };
 		667130281BBF5442008FA9D2 /* OptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667130271BBF5442008FA9D2 /* OptionsController.swift */; settings = {ASSET_TAGS = (); }; };
 		6671302B1BC0A9E3008FA9D2 /* FontViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6671302A1BC0A9E3008FA9D2 /* FontViewModel.swift */; settings = {ASSET_TAGS = (); }; };
-		66E683C71BC8639F00E9710F /* FontSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E683C61BC8639F00E9710F /* FontSpec.swift */; settings = {ASSET_TAGS = (); }; };
+		66E683C81BC86BFC00E9710F /* FontSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E683C61BC8639F00E9710F /* FontSpec.swift */; };
 		71DAA9A3F2C2B17EBBDF55A6 /* Pods_Font_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89D932ED2E7D860E109EF13C /* Pods_Font_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		81737875BD1424FADC37AC22 /* Pods_Font_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621C234150C096994EF6584A /* Pods_Font_Tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -290,7 +290,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
@@ -455,7 +455,6 @@
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				667130251BBF497F008FA9D2 /* SourceSansPro.swift in Sources */,
 				6671302B1BC0A9E3008FA9D2 /* FontViewModel.swift in Sources */,
-				66E683C71BC8639F00E9710F /* FontSpec.swift in Sources */,
 				667130281BBF5442008FA9D2 /* OptionsController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
@@ -465,6 +464,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66E683C81BC86BFC00E9710F /* FontSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +519,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -587,6 +588,7 @@
 				INFOPLIST_FILE = Font/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -599,6 +601,7 @@
 				INFOPLIST_FILE = Font/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -618,6 +621,7 @@
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Font_Example.app/Font_Example";
 			};
@@ -634,6 +638,7 @@
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Font_Example.app/Font_Example";
 			};
