@@ -44,6 +44,7 @@ extension ViewController: DynamicTypeListener {
         super.viewWillAppear(animated)
         
         listenForDynamicTypeChanges()
+        updateFont(model)
     }
     
     // Unsubscribe from UIContentSizeCategoryDidChangeNotification notifications
