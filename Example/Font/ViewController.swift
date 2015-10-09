@@ -12,37 +12,49 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var example:UILabel!
-    var model:FontViewModel?
+    var model:FontViewModel!
 
     // MARK: - View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let _ = Font.SourceSansPro()
-//        let _ = Font.SourceSansPro(weight: .Semibold)
-//        let _ = Font.SourceSansPro(style: .Italic)
-        
         model = FontViewModel(name: "Source Sans Pro", size: 24, style: .Italic, weight: .Semibold)
-        updateFont(model!)
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        updateFont(model!)
+        updateFont(model)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender: sender)
         let vc = segue.destinationViewController as! OptionsController
-        vc.model = model!
+        vc.model = model
     }
     
     // MARK: - Helpers
     
     func updateFont(model:FontViewModel) {
+        // Create an instance of your custom font and generate it into a UIFont instance
         let font = Font.SourceSansPro(model.size, weight: model.weight, style: model.style).generate()
         example.font = font
     }
 }
 
+extension ViewController: DynamicTypeListener {
+    // Subscribe to UIContentSizeCategoryDidChangeNotification notifications
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        listenForDynamicTypeChanges()
+    }
+    
+    // Unsubscribe from UIContentSizeCategoryDidChangeNotification notifications
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        ignoreDynamicTypeChanges()
+    }
+    
+    // Do something when UIContentSizeCategoryDidChangeNotification notifications come in
+    func respondToDynamicTypeChanges(notification:NSNotification) {
+        updateFont(model)
+    }
+}
