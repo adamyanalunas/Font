@@ -121,5 +121,32 @@ class FontSpec: QuickSpec {
                 expect(testFont) != dissimilarStyle
             }
         }
+        
+        describe("fromUIFont:") {
+            var uiFont:UIFont!
+            var attributes:[String : AnyObject]!
+            
+            beforeEach {
+                uiFont = UIFont(name: "SourceSansPro-BoldIt", size: 24)
+                attributes = uiFont.fontDescriptor().fontAttributes()
+            }
+            
+            it("finds the correct font name") {
+                
+            }
+            
+            it("finds the correct size") {
+                let size = attributes[UIFontDescriptorSizeAttribute] as! NSNumber
+                expect(CGFloat(size)) == 24
+            }
+            
+            it("finds the correct weight") {
+                
+            }
+            
+            it("finds the correct style") {
+                
+            }
+        }
     }
 }

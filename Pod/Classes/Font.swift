@@ -69,12 +69,15 @@ public struct Font: Equatable {
         return adjustedSize
     }
     
-    public static func fromUIFont(font:UIFont) -> Font {
+    public static func fromUIFont(font:UIFont) -> Font? {
         let descriptor = font.fontDescriptor()
-        let name = descriptor.fontAttributes()[UIFontDescriptorNameAttribute]
-        let size = descriptor.fontAttributes()[UIFontDescriptorSizeAttribute]
         
-        return Font.init(fontName: String(name), size: CGFloat(size as! NSNumber))
+        guard let name = descriptor.fontAttributes()[UIFontDescriptorNameAttribute] as? NSString
+            else { return nil }
+        guard let size = descriptor.fontAttributes()[UIFontDescriptorSizeAttribute] as? NSNumber
+            else { return nil }
+        
+        return Font.init(fontName: String(name), size: CGFloat(size))
     }
     
     public func generate(sizeClass:String = UIApplication.sharedApplication().preferredContentSizeCategory, resizer:FontScaler? = nil) -> UIFont? {
