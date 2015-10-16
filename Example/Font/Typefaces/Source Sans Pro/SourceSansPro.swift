@@ -54,6 +54,6 @@ public extension Font {
     
     static func SourceSansPro(size:CGFloat = 16, weight:FontWeight = .Medium, style:FontStyle = .None) -> Font {
         let fontName = name(weight, style:style)
-        return Font(fontName: fontName, size: size)
+        return Font(fontName: fontName, size: size, weight: weight, style: style)
     }
 }

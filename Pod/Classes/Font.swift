@@ -20,14 +20,18 @@ public enum FontWeight:String {
     }
 }
 
-public struct Font {
+public struct Font: Equatable {
     public typealias FontScaler = (sizeClass:String) -> CGFloat
     public let fontName:String
     public let size:CGFloat
+    public let weight:FontWeight
+    public let style:FontStyle
     
-    public init(fontName:String, size:CGFloat) {
+    public init(fontName:String, size:CGFloat, weight:FontWeight = .Medium, style:FontStyle = .None) {
         self.fontName = fontName
         self.size = size
+        self.weight = weight
+        self.style = style
     }
     
     private func dynamicSize(sizeClass:String) -> CGFloat {
@@ -82,4 +86,6 @@ public struct Font {
 public func ==(lhs:Font, rhs:Font) -> Bool {
     return lhs.fontName == rhs.fontName
         && lhs.size == rhs.size
+        && lhs.weight == rhs.weight
+        && lhs.style == rhs.style
 }

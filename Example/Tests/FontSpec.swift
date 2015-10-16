@@ -103,12 +103,22 @@ class FontSpec: QuickSpec {
         describe("equality") {
             it("matches similar instances") {
                 let similarFont = Font.SourceSansPro()
-                expect(testFont == similarFont) == true
+                expect(testFont) == similarFont
             }
             
-            it("will not match dissimilar instances") {
-                let dissimilarFont = Font.SourceSansPro(123)
-                expect(testFont == dissimilarFont) == false
+            it("will not match dissimilar sizes") {
+                let dissimilarSize = Font.SourceSansPro(123)
+                expect(testFont) != dissimilarSize
+            }
+            
+            it("will not match dissimilar weights") {
+                let dissimilarWeight = Font.SourceSansPro(weight: .Black)
+                expect(testFont) != dissimilarWeight
+            }
+            
+            it("will not match dissimilar syles") {
+                let dissimilarStyle = Font.SourceSansPro(style: .Italic)
+                expect(testFont) != dissimilarStyle
             }
         }
     }
