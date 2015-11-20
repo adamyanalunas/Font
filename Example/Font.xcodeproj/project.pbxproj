@@ -12,25 +12,25 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		667130171BBF495A008FA9D2 /* SIL Open Font License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6671300A1BBF495A008FA9D2 /* SIL Open Font License.txt */; settings = {ASSET_TAGS = (); }; };
-		667130181BBF495A008FA9D2 /* SourceSansPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6671300B1BBF495A008FA9D2 /* SourceSansPro-Black.otf */; settings = {ASSET_TAGS = (); }; };
-		667130191BBF495A008FA9D2 /* SourceSansPro-BlackIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6671300C1BBF495A008FA9D2 /* SourceSansPro-BlackIt.otf */; settings = {ASSET_TAGS = (); }; };
-		6671301A1BBF495A008FA9D2 /* SourceSansPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6671300D1BBF495A008FA9D2 /* SourceSansPro-Bold.otf */; settings = {ASSET_TAGS = (); }; };
-		6671301B1BBF495A008FA9D2 /* SourceSansPro-BoldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6671300E1BBF495A008FA9D2 /* SourceSansPro-BoldIt.otf */; settings = {ASSET_TAGS = (); }; };
-		6671301C1BBF495A008FA9D2 /* SourceSansPro-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6671300F1BBF495A008FA9D2 /* SourceSansPro-ExtraLight.otf */; settings = {ASSET_TAGS = (); }; };
-		6671301D1BBF495A008FA9D2 /* SourceSansPro-ExtraLightIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 667130101BBF495A008FA9D2 /* SourceSansPro-ExtraLightIt.otf */; settings = {ASSET_TAGS = (); }; };
-		6671301E1BBF495A008FA9D2 /* SourceSansPro-It.otf in Resources */ = {isa = PBXBuildFile; fileRef = 667130111BBF495A008FA9D2 /* SourceSansPro-It.otf */; settings = {ASSET_TAGS = (); }; };
-		6671301F1BBF495A008FA9D2 /* SourceSansPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 667130121BBF495A008FA9D2 /* SourceSansPro-Light.otf */; settings = {ASSET_TAGS = (); }; };
-		667130201BBF495A008FA9D2 /* SourceSansPro-LightIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 667130131BBF495A008FA9D2 /* SourceSansPro-LightIt.otf */; settings = {ASSET_TAGS = (); }; };
-		667130211BBF495A008FA9D2 /* SourceSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 667130141BBF495A008FA9D2 /* SourceSansPro-Regular.otf */; settings = {ASSET_TAGS = (); }; };
-		667130221BBF495A008FA9D2 /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 667130151BBF495A008FA9D2 /* SourceSansPro-Semibold.otf */; settings = {ASSET_TAGS = (); }; };
-		667130231BBF495A008FA9D2 /* SourceSansPro-SemiboldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 667130161BBF495A008FA9D2 /* SourceSansPro-SemiboldIt.otf */; settings = {ASSET_TAGS = (); }; };
-		667130251BBF497F008FA9D2 /* SourceSansPro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667130241BBF497F008FA9D2 /* SourceSansPro.swift */; settings = {ASSET_TAGS = (); }; };
-		667130281BBF5442008FA9D2 /* OptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667130271BBF5442008FA9D2 /* OptionsController.swift */; settings = {ASSET_TAGS = (); }; };
-		6671302B1BC0A9E3008FA9D2 /* FontViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6671302A1BC0A9E3008FA9D2 /* FontViewModel.swift */; settings = {ASSET_TAGS = (); }; };
+		667130171BBF495A008FA9D2 /* SIL Open Font License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6671300A1BBF495A008FA9D2 /* SIL Open Font License.txt */; };
+		667130181BBF495A008FA9D2 /* SourceSansPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6671300B1BBF495A008FA9D2 /* SourceSansPro-Black.otf */; };
+		667130191BBF495A008FA9D2 /* SourceSansPro-BlackIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6671300C1BBF495A008FA9D2 /* SourceSansPro-BlackIt.otf */; };
+		6671301A1BBF495A008FA9D2 /* SourceSansPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6671300D1BBF495A008FA9D2 /* SourceSansPro-Bold.otf */; };
+		6671301B1BBF495A008FA9D2 /* SourceSansPro-BoldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6671300E1BBF495A008FA9D2 /* SourceSansPro-BoldIt.otf */; };
+		6671301C1BBF495A008FA9D2 /* SourceSansPro-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6671300F1BBF495A008FA9D2 /* SourceSansPro-ExtraLight.otf */; };
+		6671301D1BBF495A008FA9D2 /* SourceSansPro-ExtraLightIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 667130101BBF495A008FA9D2 /* SourceSansPro-ExtraLightIt.otf */; };
+		6671301E1BBF495A008FA9D2 /* SourceSansPro-It.otf in Resources */ = {isa = PBXBuildFile; fileRef = 667130111BBF495A008FA9D2 /* SourceSansPro-It.otf */; };
+		6671301F1BBF495A008FA9D2 /* SourceSansPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 667130121BBF495A008FA9D2 /* SourceSansPro-Light.otf */; };
+		667130201BBF495A008FA9D2 /* SourceSansPro-LightIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 667130131BBF495A008FA9D2 /* SourceSansPro-LightIt.otf */; };
+		667130211BBF495A008FA9D2 /* SourceSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 667130141BBF495A008FA9D2 /* SourceSansPro-Regular.otf */; };
+		667130221BBF495A008FA9D2 /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 667130151BBF495A008FA9D2 /* SourceSansPro-Semibold.otf */; };
+		667130231BBF495A008FA9D2 /* SourceSansPro-SemiboldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 667130161BBF495A008FA9D2 /* SourceSansPro-SemiboldIt.otf */; };
+		667130251BBF497F008FA9D2 /* SourceSansPro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667130241BBF497F008FA9D2 /* SourceSansPro.swift */; };
+		667130281BBF5442008FA9D2 /* OptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667130271BBF5442008FA9D2 /* OptionsController.swift */; };
+		6671302B1BC0A9E3008FA9D2 /* FontViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6671302A1BC0A9E3008FA9D2 /* FontViewModel.swift */; };
 		66E683C81BC86BFC00E9710F /* FontSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E683C61BC8639F00E9710F /* FontSpec.swift */; };
-		71DAA9A3F2C2B17EBBDF55A6 /* Pods_Font_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89D932ED2E7D860E109EF13C /* Pods_Font_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		81737875BD1424FADC37AC22 /* Pods_Font_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621C234150C096994EF6584A /* Pods_Font_Tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		71DAA9A3F2C2B17EBBDF55A6 /* Pods_Font_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89D932ED2E7D860E109EF13C /* Pods_Font_Example.framework */; };
+		81737875BD1424FADC37AC22 /* Pods_Font_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621C234150C096994EF6584A /* Pods_Font_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
