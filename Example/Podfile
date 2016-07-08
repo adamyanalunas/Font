@@ -1,13 +1,14 @@
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-target 'Font_Example', :exclusive => true do
-  pod "Font", :path => "../"
+target 'Font_Example' do
+  pod 'Font', :path => '../'
+
+  target 'Font_Tests' do
+    inherit! :search_paths
+
+    pod 'Quick', '~> 0.9.2'
+    pod 'Nimble', '~> 4.1.0'
+  end
 end
 
-target 'Font_Tests', :exclusive => true do
-  pod "Font", :path => "../"
-
-  pod 'Quick', '~> 0.8.0'
-  pod 'Nimble', '~> 3.0.0'
-end
