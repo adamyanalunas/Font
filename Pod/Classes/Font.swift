@@ -7,60 +7,61 @@
 //
 
 import Foundation
+import UIKit
 
-public enum FontStyle:String {
+public enum FontStyle: String {
     case None, Italic
 }
 
-public enum FontWeight:String {
-    case Ultralight, Thin, Light, Regular, Medium, Semibold, Heavy, Black
+public enum FontWeight: String {
+    case ultralight, thin, light, regular, medium, semibold, bold, heavy, black
     
-    public init(type:String) {
+    public init(type: String) {
         self = FontWeight(rawValue: type)!
     }
 }
 
 public struct Font: Equatable {
-    public typealias FontScaler = (sizeClass:String) -> CGFloat
+    public typealias FontScaler = (_ sizeClass: String) -> CGFloat
     public let fontName:String
-    public let size:CGFloat
-    public let weight:FontWeight
-    public let style:FontStyle
+    public let size: CGFloat
+    public let weight: FontWeight
+    public let style: FontStyle
     
-    public init(fontName:String, size:CGFloat, weight:FontWeight = .Medium, style:FontStyle = .None) {
+    public init(fontName: String, size: CGFloat, weight: FontWeight = .medium, style: FontStyle = .None) {
         self.fontName = fontName
         self.size = size
         self.weight = weight
         self.style = style
     }
     
-    private func dynamicSize(sizeClass:String) -> CGFloat {
-        let adjustedSize:CGFloat
+    private func dynamicSize(_ sizeClass: UIContentSizeCategory) -> CGFloat {
+        let adjustedSize: CGFloat
         
         switch sizeClass {
-        case UIContentSizeCategoryExtraSmall:
+        case UIContentSizeCategory.extraSmall:
             adjustedSize = floor(size / 1.6) //10
-        case UIContentSizeCategorySmall:
+        case UIContentSizeCategory.small:
             adjustedSize = floor(size / 1.4) //11
-        case UIContentSizeCategoryMedium:
+        case UIContentSizeCategory.medium:
             adjustedSize = floor(size / 1.2) //13
-        case UIContentSizeCategoryLarge:
+        case UIContentSizeCategory.large:
             adjustedSize = size //16
-        case UIContentSizeCategoryExtraLarge:
+        case UIContentSizeCategory.extraLarge:
             adjustedSize = floor(size * 1.15) //18
-        case UIContentSizeCategoryExtraExtraLarge:
+        case UIContentSizeCategory.extraExtraLarge:
             adjustedSize = floor(size * 1.25) //20
-        case UIContentSizeCategoryExtraExtraExtraLarge:
+        case UIContentSizeCategory.extraExtraExtraLarge:
             adjustedSize = floor(size * 1.4) //22
-        case UIContentSizeCategoryAccessibilityMedium:
+        case UIContentSizeCategory.accessibilityMedium:
             adjustedSize = floor(size * 1.5) //24
-        case UIContentSizeCategoryAccessibilityLarge:
+        case UIContentSizeCategory.accessibilityLarge:
             adjustedSize = floor(size * 1.65) //26
-        case UIContentSizeCategoryAccessibilityExtraLarge:
+        case UIContentSizeCategory.accessibilityExtraLarge:
             adjustedSize = floor(size * 1.75) //28
-        case UIContentSizeCategoryAccessibilityExtraExtraLarge:
+        case UIContentSizeCategory.accessibilityExtraExtraLarge:
             adjustedSize = floor(size * 1.9) //30
-        case UIContentSizeCategoryAccessibilityExtraExtraExtraLarge:
+        case UIContentSizeCategory.accessibilityExtraExtraExtraLarge:
             adjustedSize = floor(size * 2) //32
         default:
             adjustedSize = 16
@@ -69,21 +70,21 @@ public struct Font: Equatable {
         return adjustedSize
     }
     
-    public static func fromUIFont(font:UIFont) -> Font {
-        let descriptor = font.fontDescriptor()
-        let name = descriptor.fontAttributes()[UIFontDescriptorNameAttribute]
-        let size = descriptor.fontAttributes()[UIFontDescriptorSizeAttribute]
+    public static func fromUIFont(font: UIFont) -> Font {
+        let descriptor = font.fontDescriptor
+        let name = descriptor.fontAttributes[UIFontDescriptorNameAttribute]
+        let size = descriptor.fontAttributes[UIFontDescriptorSizeAttribute]
         
-        return Font.init(fontName: String(name), size: CGFloat(size as! NSNumber))
+        return Font.init(fontName: String(describing: name), size: CGFloat(size as! NSNumber))
     }
     
-    public func generate(sizeClass:String = UIApplication.sharedApplication().preferredContentSizeCategory, resizer:FontScaler? = nil) -> UIFont? {
-        let adjustedSize = resizer != nil ? resizer!(sizeClass: sizeClass) : dynamicSize(sizeClass)
+    public func generate(sizeClass: UIContentSizeCategory = UIApplication.shared.preferredContentSizeCategory, resizer: FontScaler? = nil) -> UIFont? {
+        let adjustedSize = (resizer != nil) ? resizer!(sizeClass.rawValue) : dynamicSize(sizeClass)
         return UIFont(name: fontName, size: adjustedSize)
     }
 }
 
-public func ==(lhs:Font, rhs:Font) -> Bool {
+public func ==(lhs: Font, rhs: Font) -> Bool {
     return lhs.fontName == rhs.fontName
         && lhs.size == rhs.size
         && lhs.weight == rhs.weight
