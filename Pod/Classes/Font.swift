@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public enum FontStyle: String {
-    case None, Italic
+    case none, italic
 }
 
 public enum FontWeight: String {
@@ -28,7 +28,7 @@ public struct Font: Equatable {
     public let weight: FontWeight
     public let style: FontStyle
     
-    public init(fontName: String, size: CGFloat, weight: FontWeight = .medium, style: FontStyle = .None) {
+    public init(fontName: String, size: CGFloat, weight: FontWeight = .medium, style: FontStyle = .none) {
         self.fontName = fontName
         self.size = size
         self.weight = weight
