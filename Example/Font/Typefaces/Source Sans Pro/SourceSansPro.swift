@@ -9,41 +9,46 @@
 import Font
 
 public extension Font {
-    private static func sourceSansProWeight(weight:FontWeight) -> String {
+    private static func sourceSansPro(weight: FontWeight) -> String {
         switch weight {
-        case .Ultralight:
+        case .ultralight:
             return "ExtraLight"
             
-        case .Thin:
+        case .thin:
             fallthrough
-        case .Light:
+            
+        case .light:
             return "Light"
             
-        case .Regular:
+        case .regular:
             fallthrough
-        case .Medium:
+            
+        case .medium:
             return "Regular"
             
-        case .Semibold:
+        case .semibold:
             return "Semibold"
             
-        case .Heavy:
+        case .heavy:
             return "Bold"
             
-        case .Black:
+        case .black:
             return "Black"
+            
+        default:
+            return "Regular"
         }
     }
     
-    private static func name(weight:FontWeight, style:FontStyle) -> String {
+    private static func name(weight: FontWeight, style: FontStyle) -> String {
         let base = "SourceSansPro"
-        let weightNumber = sourceSansProWeight(weight)
+        let weightNumber = sourceSansPro(weight: weight)
         
-        let weightAndStyle:String
+        let weightAndStyle: String
         switch style {
-        case _ where style == .Italic && (weight == .Regular || weight == .Medium):
+        case _ where style == .italic && (weight == .regular || weight == .medium):
             weightAndStyle = "It"
-        case .Italic:
+        case .italic:
             weightAndStyle = "\(weightNumber)It"
         default:
             weightAndStyle = weightNumber
@@ -52,8 +57,8 @@ public extension Font {
         return "\(base)-\(weightAndStyle)"
     }
     
-    static func SourceSansPro(size:CGFloat = 16, weight:FontWeight = .Medium, style:FontStyle = .None) -> Font {
-        let fontName = name(weight, style:style)
+    static func SourceSansPro(size: CGFloat = 16, weight: FontWeight = .medium, style: FontStyle = .none) -> Font {
+        let fontName = name(weight: weight, style:style)
         return Font(fontName: fontName, size: size, weight: weight, style: style)
     }
 }

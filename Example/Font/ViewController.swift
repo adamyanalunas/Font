@@ -10,7 +10,6 @@ import Font
 import UIKit
 
 class ViewController: UIViewController {
-    
     @IBOutlet weak var example:UILabel!
     var model:FontViewModel!
 
@@ -19,13 +18,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        model = FontViewModel(name: "Source Sans Pro", size: 24, style: .Italic, weight: .Semibold)
-        updateFont(model)
+        model = FontViewModel(name: "Source Sans Pro", size: 24, style: .italic, weight: .semibold)
+        updateFont(model: model)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        super.prepareForSegue(segue, sender: sender)
-        let vc = segue.destinationViewController as! OptionsController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        let vc = segue.destination as! OptionsController
         vc.model = model
     }
     
@@ -33,22 +32,22 @@ class ViewController: UIViewController {
     
     func updateFont(model:FontViewModel) {
         // Create an instance of your custom font and generate it into a UIFont instance
-        let font = Font.SourceSansPro(model.size, weight: model.weight, style: model.style).generate()
+        let font = Font.SourceSansPro(size: model.size, weight: model.weight, style: model.style).generate()
         example.font = font
     }
 }
 
 extension ViewController: DynamicTypeListener {
     // Subscribe to UIContentSizeCategoryDidChangeNotification notifications
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         listenForDynamicTypeChanges()
-        updateFont(model)
+        updateFont(model: model)
     }
     
     // Unsubscribe from UIContentSizeCategoryDidChangeNotification notifications
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         ignoreDynamicTypeChanges()
@@ -56,6 +55,6 @@ extension ViewController: DynamicTypeListener {
     
     // Do something when UIContentSizeCategoryDidChangeNotification notifications come in
     func respondToDynamicTypeChanges(notification:NSNotification) {
-        updateFont(model)
+        updateFont(model: model)
     }
 }
