@@ -9,16 +9,16 @@
 import Foundation
 import UIKit
 
-@objc public protocol DynamicTypeListener {
+public protocol DynamicTypeListener {
     func listenForDynamicTypeChanges()
     func ignoreDynamicTypeChanges()
     func respondToDynamicTypeChanges(notification: NSNotification)
 }
 
-public extension DynamicTypeListener where Self: UIViewController {
+public extension DynamicTypeListener where Self:UIViewController {
     func listenForDynamicTypeChanges() {
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(DynamicTypeListener.respondToDynamicTypeChanges),
+                                               selector: Selector("respondToDynamicTypeChanges"),
                                                name: NSNotification.Name.UIContentSizeCategoryDidChange,
                                                object: nil)
     }
