@@ -9,6 +9,16 @@
 
 You can either run `pod try Font` from your command line or clone the repo and run `pod install` from the Example directory followed by loading up the Example workspace.
 
+## Swift 3.0
+
+Font is now Swift 3.0 ready. If you need Swift 2.3 support, the `swift2.3` branch is available but it will not receive updates except for maybe the occasional bugfix.
+
+Changes required by the 3.0 change:
+
+* Initial argument names are now required on many methods
+* `FontWeight` and `FontStyle` values are lowercased
+* `.bold` was added to `FontWeight`
+
 ## Example
 
 First step, you need to make a Font extension to properly describe how your custom font responds to various weights and styles. Here's an example for Adobe’s [Source Sans Pro](https://adobe-fonts.github.io/source-sans-pro/). Note that the function `SourceSansPro`’s **name and signature are entirely fabricated**. You could name it `StandardFont` or `BodyFont`. You could withhold options for italic or size. Entirely up to you and the flexibility of your font.
