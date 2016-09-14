@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "Font"
-  s.version          = "0.1.0"
+  s.version          = "0.2.0"
   s.summary          = "Working with UIFont for custom fonts sucks—especially Dynamic Type. Font makes things easier."
 
 # This description is used to generate tags and improve search results.
@@ -28,11 +28,9 @@ Pod::Spec.new do |s|
                        DESC
 
   s.homepage         = "https://github.com/adamyanalunas/Font"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Adam Yanalunas" => "adam@yanalunas.com" }
   s.source           = { :git => "https://github.com/adamyanalunas/Font.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/adamyanalunas'
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true
