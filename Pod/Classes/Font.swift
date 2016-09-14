@@ -9,11 +9,11 @@
 import Foundation
 
 public enum FontStyle:String {
-    case None, Italic
+    case none, italic
 }
 
 public enum FontWeight:String {
-    case Ultralight, Thin, Light, Regular, Medium, Semibold, Heavy, Black
+    case ultralight, thin, light, regular, medium, semibold, bold, heavy, black
     
     public init(type:String) {
         self = FontWeight(rawValue: type)!
@@ -27,7 +27,7 @@ public struct Font: Equatable {
     public let weight:FontWeight
     public let style:FontStyle
     
-    public init(fontName:String, size:CGFloat, weight:FontWeight = .Medium, style:FontStyle = .None) {
+    public init(fontName:String, size:CGFloat, weight:FontWeight = .medium, style:FontStyle = .none) {
         self.fontName = fontName
         self.size = size
         self.weight = weight

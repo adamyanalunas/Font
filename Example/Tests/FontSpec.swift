@@ -112,12 +112,12 @@ class FontSpec: QuickSpec {
             }
             
             it("will not match dissimilar weights") {
-                let dissimilarWeight = Font.SourceSansPro(weight: .Black)
+                let dissimilarWeight = Font.SourceSansPro(weight: .black)
                 expect(testFont) != dissimilarWeight
             }
             
             it("will not match dissimilar syles") {
-                let dissimilarStyle = Font.SourceSansPro(style: .Italic)
+                let dissimilarStyle = Font.SourceSansPro(style: .italic)
                 expect(testFont) != dissimilarStyle
             }
         }

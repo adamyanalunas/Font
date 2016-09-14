@@ -18,7 +18,7 @@ public protocol DynamicTypeListener {
 public extension DynamicTypeListener where Self:UIViewController {
     func listenForDynamicTypeChanges() {
         NotificationCenter.default
-            .addObserver(self, selector: "respondToDynamicTypeChanges:", name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
+            .addObserver(self, selector: Selector("respondToDynamicTypeChanges"), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
     }
     
     func ignoreDynamicTypeChanges() {

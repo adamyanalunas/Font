@@ -26,7 +26,7 @@ class OptionsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        weightOptions = [FontWeight.Ultralight, .Thin, .Light, .Regular, .Medium, .Semibold, .Heavy, .Black].map {
+        weightOptions = [FontWeight.ultralight, .thin, .light, .regular, .medium, .semibold, .heavy, .black].map {
             $0.rawValue
         }
         weightSelector.reloadAllComponents()
@@ -36,7 +36,7 @@ class OptionsController: UITableViewController {
         super.viewWillAppear(animated)
         
         sizeField.text = String(describing: model.size)
-        italicSwitch.isOn = model.style == .Italic
+        italicSwitch.isOn = model.style == .italic
         weightLabel.text = model.weight.rawValue
         nameLabel.text = model.name
         
@@ -63,7 +63,7 @@ class OptionsController: UITableViewController {
         return FontViewModel(
             name: nameLabel.text!,
             size: CGFloat(size),
-            style: (italicSwitch.isOn ? .Italic : .None),
+            style: (italicSwitch.isOn ? .italic : .none),
             weight: FontWeight(type: weightLabel.text!)
         )
     }

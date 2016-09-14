@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        model = FontViewModel(name: "Source Sans Pro", size: 24, style: .Italic, weight: .Semibold)
+        model = FontViewModel(name: "Source Sans Pro", size: 24, style: .italic, weight: .semibold)
         updateFont(model)
     }
     
