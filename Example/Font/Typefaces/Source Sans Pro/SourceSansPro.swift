@@ -9,7 +9,7 @@
 import Font
 
 public extension Font {
-    private static func sourceSansProWeight(weight:FontWeight) -> String {
+    private static func sourceSansProWeight(_ weight:FontWeight) -> String {
         switch weight {
         case .Ultralight:
             return "ExtraLight"
@@ -53,7 +53,7 @@ public extension Font {
     }
     
     static func SourceSansPro(size:CGFloat = 16, weight:FontWeight = .Medium, style:FontStyle = .None) -> Font {
-        let fontName = name(weight, style:style)
+        let fontName = name(weight: weight, style:style)
         return Font(fontName: fontName, size: size, weight: weight, style: style)
     }
 }
