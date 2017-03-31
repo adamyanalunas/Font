@@ -9,9 +9,15 @@
 import Font
 import UIKit
 
+protocol FontUpdateable: class {
+    func didUpdateFont(using model: FontViewModel)
+}
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var example:UILabel!
+    
+    let fonts = FontAutoloader()
     var model:FontViewModel!
 
     // MARK: - View lifecycle
@@ -19,22 +25,35 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        model = FontViewModel(name: "Source Sans Pro", size: 24, style: .italic, weight: .semibold)
-        updateFont(model)
+        fonts.load()
+        guard let firstFamily = fonts.families.first else { return }
+        
+        model = FontViewModel(family: firstFamily, size: 24, weight: .regular, isItalic: false, width: .regular)
+        updateFont()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        let vc = segue.destination as! OptionsController
-        vc.model = model
+        if let vc = segue.destination as? OptionsController {
+            vc.model = model
+            vc.delegate = self
+        }
     }
     
     // MARK: - Helpers
     
-    func updateFont(_ model:FontViewModel) {
+    func updateFont() {
         // Create an instance of your custom font and generate it into a UIFont instance
-        let font = Font.SourceSansPro(size: model.size, weight: model.weight, style: model.style).generate()
-        example.font = font
+//        let font = Font.SourceSansPro(size: model.size, weight: model.weight, style: model.style).generate()
+//        example.font = font
+        example.font = model.family.font(size: model.size, weight: model.weight, italic: model.isItalic, width: model.width)
+    }
+}
+
+extension ViewController: FontUpdateable {
+    func didUpdateFont(using model: FontViewModel) {
+        self.model = model
+        updateFont()
     }
 }
 
@@ -44,7 +63,6 @@ extension ViewController: DynamicTypeListener {
         super.viewWillAppear(animated)
         
         listenForDynamicTypeChanges()
-        updateFont(model)
     }
     
     // Unsubscribe from UIContentSizeCategoryDidChangeNotification notifications
@@ -56,6 +74,7 @@ extension ViewController: DynamicTypeListener {
     
     // Do something when UIContentSizeCategoryDidChangeNotification notifications come in
     func respondToDynamicTypeChanges(_ notification:Notification) {
-        updateFont(model)
+        // TODO: Find better way to update this
+        updateFont()
     }
 }

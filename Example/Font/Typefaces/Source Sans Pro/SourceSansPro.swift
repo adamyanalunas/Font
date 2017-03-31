@@ -43,10 +43,11 @@ public extension Font {
         
         let weightAndStyle:String
         switch style {
-        case _ where style == .italic && (weight == .regular || weight == .medium):
-            weightAndStyle = "It"
-        case .italic:
-            weightAndStyle = "\(weightNumber)It"
+            // TODO: Reassess
+//        case _ where style == .italic && (weight == .regular || weight == .medium):
+//            weightAndStyle = "It"
+//        case .italic:
+//            weightAndStyle = "\(weightNumber)It"
         default:
             weightAndStyle = weightNumber
         }
@@ -54,7 +55,7 @@ public extension Font {
         return "\(base)-\(weightAndStyle)"
     }
     
-    static func SourceSansPro(size:CGFloat = 16, weight:FontWeight = .medium, style:FontStyle = .none) -> Font {
+    static func SourceSansPro(size:CGFloat = 16, weight:FontWeight = .medium, style:FontStyle = .regular) -> Font {
         let fontName = name(weight: weight, style:style)
         return Font(fontName: fontName, size: size, weight: weight, style: style)
     }

@@ -8,29 +8,116 @@
 
 import Foundation
 
+// TODO: Remove in preference of FontWidth
 public enum FontStyle:String {
-    case none, italic
+    case regular, condensed, expanded
 }
 
 public enum FontWeight:String {
     case ultralight, thin, light, regular, medium, semibold, bold, heavy, black
     
-    public init(type:String) {
-        self = FontWeight(rawValue: type)!
+    public static let lightWeights:[FontWeight] = [.ultralight, .thin, .light]
+    public static let boldWeights:[FontWeight] = [.semibold, .bold, .heavy, .black]
+    
+    public func value() -> Int {
+        switch self {
+        case .ultralight:
+            return 100
+        case .thin:
+            return 200
+        case .light:
+            return 300
+        case .regular:
+            return 400
+        case .medium:
+            return 500
+        case .semibold:
+            return 600
+        case .bold:
+            return 700
+        case .heavy:
+            return 800
+        case .black:
+            return 900
+        }
+    }
+    
+    // TODO: Reference https://github.com/Microsoft/WinObjC/pull/1039/files#diff-4bd7a9c14e083a674288c2255f70e8f0R80
+    public init(fromCoreTextWeightTrait weight:Float) {
+        if weight > 0.8 {
+            self = .black
+        } else if weight >= 0.4 {
+            self = .heavy
+        } else if weight >= 0.3 {
+            self = .semibold
+        } else if weight >= 0.2 {
+            self = .medium
+        } else if weight >= 0 {
+            self = .regular
+        } else if weight >= -0.4 {
+            self = .light
+        } else if weight >= -0.6 {
+            self = .thin
+        } else {
+            self = .ultralight
+        }
     }
 }
+
+public enum FontWidth:String {
+    case undefined
+    case ultraCondensed
+    case extraCondensed
+    case condensed
+    case semiCondensed
+    case regular
+    case semiExpanded
+    case expanded
+    case extraExpanded
+    case ultraExpanded
+    
+    public static let condensedWidths:[FontWidth] = [.ultraCondensed, .extraCondensed, .condensed, .semiCondensed]
+    public static let expandedWidths:[FontWidth] = [.semiExpanded, .expanded, .extraExpanded, .ultraExpanded]
+    
+    public init(fromCoreTextWidthTrait number:Float) {
+        if number == 1 {
+            self = .ultraExpanded
+        } else if number >= 0.7 {
+            self = .extraExpanded
+        } else if number >= 0.4 {
+            self = .expanded
+        } else if number >= 0.1 {
+            self = .semiExpanded
+        } else if number == 0 {
+            self = .regular
+        } else if number >= -0.1 {
+            self = .semiCondensed
+        } else if number >= -0.4 {
+            self = .condensed
+        } else if number >= -0.7 {
+            self = .extraCondensed
+        } else if number == -1 {
+            self = .ultraCondensed
+        } else {
+            self = .undefined
+        }
+    }
+}
+
 
 public struct Font: Equatable {
     public typealias FontScaler = (_ sizeClass:UIContentSizeCategory) -> CGFloat
     public let fontName:String
     public let size:CGFloat
     public let weight:FontWeight
+    public let isItalic:Bool
     public let style:FontStyle
     
-    public init(fontName:String, size:CGFloat, weight:FontWeight = .medium, style:FontStyle = .none) {
+    public init(fontName:String, size:CGFloat, weight:FontWeight = .medium, isItalic:Bool = false, style:FontStyle = .regular) {
         self.fontName = fontName
         self.size = size
         self.weight = weight
+        self.isItalic = isItalic
         self.style = style
     }
     
@@ -87,5 +174,6 @@ public func ==(lhs:Font, rhs:Font) -> Bool {
     return lhs.fontName == rhs.fontName
         && lhs.size == rhs.size
         && lhs.weight == rhs.weight
+        && lhs.isItalic == rhs.isItalic
         && lhs.style == rhs.style
 }

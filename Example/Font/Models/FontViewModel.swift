@@ -11,15 +11,18 @@ import Foundation
 import UIKit
 
 struct FontViewModel {
-    let name:String
+    let family:FontFamily
     let size:CGFloat
-    let style:FontStyle
     let weight:FontWeight
-    
-    init(name:String, size:CGFloat, style:FontStyle, weight:FontWeight) {
-        self.name = name
-        self.size = size
-        self.style = style
-        self.weight = weight
+    let isItalic:Bool
+    let width:FontWidth
+
+    func generateFont() -> UIFont? {
+        return family.font(
+            size: size,
+            weight: weight,
+            italic: isItalic,
+            width: width
+        )
     }
 }

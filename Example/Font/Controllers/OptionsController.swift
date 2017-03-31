@@ -13,22 +13,40 @@ import UIKit
 class OptionsController: UITableViewController {
     
     @IBOutlet weak var nameLabel:UILabel!
+    @IBOutlet weak var nameSelector:UIPickerView!
     @IBOutlet weak var italicSwitch:UISwitch!
     @IBOutlet weak var sizeField:UITextField!
     @IBOutlet weak var weightLabel:UILabel!
-    var weightOptions:[String]!
     @IBOutlet weak var weightSelector:UIPickerView!
+    @IBOutlet weak var widthLabel:UILabel!
     
-    var model:FontViewModel!
+    var families:[FontFamily] = []
+    var model:FontViewModel! {
+        didSet {
+            delegate?.didUpdateFont(using: model)
+        }
+    }
+    
+    var nameSelectorModel:Picker!
+    var weightSelectorModel:Picker!
+    
+    weak var delegate:FontUpdateable?
     
     // MARK: - View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        weightOptions = [FontWeight.ultralight, .thin, .light, .regular, .medium, .semibold, .heavy, .black].map {
-            $0.rawValue
-        }
+        let fonts = FontAutoloader()
+        fonts.load()
+        
+        families = fonts.families.sorted(by: { $0.name < $1.name })
+        let nameOptions = families.map({ $0.name })
+        
+        nameSelectorModel = Picker(options: nameOptions, rowHeight: 36, label: nameLabel)
+        weightSelectorModel = Picker(options: [], rowHeight: 36, label: weightLabel)
+        
+        nameSelector.reloadAllComponents()
         weightSelector.reloadAllComponents()
     }
     
@@ -36,22 +54,17 @@ class OptionsController: UITableViewController {
         super.viewWillAppear(animated)
         
         sizeField.text = String(describing: model.size)
-        italicSwitch.isOn = model.style == .italic
-        weightLabel.text = model.weight.rawValue
-        nameLabel.text = model.name
+        italicSwitch.isOn = model.isItalic
         
-        let selectedWeight = weightOptions.index(of: model.weight.rawValue)
-        weightSelector.selectRow(selectedWeight!, inComponent: 0, animated: false)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
+        guard let nameRow = nameSelectorModel.options.index(of: model.family.name) else { return }
+        nameSelector.selectRow(nameRow, inComponent: 0, animated: false)
         
-        self.view.endEditing(true)
-        resetModel()
+        if let row = families[nameRow].weights.index(of: model.weight) {
+            weightSelector.selectRow(row, inComponent: 0, animated: false)
+        }
         
-        let vc = segue.destination as! ViewController
-        vc.model = generateModel()
+        widthLabel.text = model.weight.rawValue
+        updateValues(forFamily: model.family)
     }
     
     // MARK: - Model consumption
@@ -61,21 +74,50 @@ class OptionsController: UITableViewController {
             else { return model }
         
         return FontViewModel(
-            name: nameLabel.text!,
+            family: families[nameSelector.selectedRow(inComponent: 0)],
             size: CGFloat(size),
-            style: (italicSwitch.isOn ? .italic : .none),
-            weight: FontWeight(type: weightLabel.text!)
+            weight: FontWeight(rawValue: weightLabel.text!) ?? .regular,
+            isItalic: italicSwitch.isOn,
+            width: FontWidth(rawValue: widthLabel.text!) ?? .regular
         )
     }
     
-    func resetModel() {
+    func updateModel() {
+        let italicsCount = families[nameSelector.selectedRow(inComponent: 0)].fonts.reduce(0) {
+            $0 + ($1.isItalic ? 1 : 0)
+        }
+        if italicsCount == 0 {
+            italicSwitch.isEnabled = false
+            italicSwitch.isOn = false
+        } else {
+            italicSwitch.isEnabled = true
+        }
+        
         model = generateModel()
+    }
+    
+    func updateValues(forFamily family: FontFamily) {
+        nameSelectorModel.label.text = family.name
+        weightSelectorModel.label.text = family.weights[weightSelector.selectedRow(inComponent: 0)].rawValue
+        widthLabel.text = family.widths.first?.rawValue
+        
+    }
+    
+    func modelForSelector(_ picker:UIPickerView) -> Picker? {
+        switch picker {
+        case weightSelector:
+            return weightSelectorModel
+        case nameSelector:
+            return nameSelectorModel
+        default:
+            return nil
+        }
     }
     
     // MARK: - Actions
     
     @IBAction func switchStyle() {
-        resetModel()
+        updateModel()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -85,7 +127,9 @@ class OptionsController: UITableViewController {
         case 0:
             sizeField.becomeFirstResponder()
         case 1:
-            italicSwitch.isOn = !italicSwitch.isOn
+            if italicSwitch.isEnabled {
+                italicSwitch.isOn = !italicSwitch.isOn
+            }
         default:
             view.endEditing(true)
         }
@@ -94,26 +138,55 @@ class OptionsController: UITableViewController {
     }
 }
 
+extension OptionsController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        updateModel()
+    }
+}
+
 extension OptionsController: UIPickerViewDataSource {
-    func numberOfComponents(in: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return weightOptions.count
+        if pickerView == nameSelector {
+            guard let model = modelForSelector(pickerView) else { return 0 }
+            return model.options.count
+        } else {
+            return families[nameSelector.selectedRow(inComponent: component)].weights.count
+        }
     }
 }
 
 extension OptionsController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return weightOptions[row]
+        if pickerView == nameSelector {
+            return modelForSelector(pickerView)?.options[row]
+        } else {
+            let weights = families[nameSelector.selectedRow(inComponent: 0)].weights
+            return weights[row].rawValue
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        weightLabel.text = weightOptions[row]
+        if pickerView == nameSelector {
+            weightSelector.reloadAllComponents()
+        }
+        
+        let family = families[nameSelector.selectedRow(inComponent: component)]
+        updateValues(forFamily: family)
+        updateModel()
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return 36
+        guard let model = modelForSelector(pickerView) else { return 0 }
+        return model.rowHeight
     }
+}
+
+struct Picker {
+    let options:[String]
+    let rowHeight:CGFloat
+    let label:UILabel
 }
