@@ -24,7 +24,7 @@ final public class FontAutoloader {
     // NOTE: Required to let users FontAutoloader()
     public init() {}
     
-    public  func load(fromBundle bundle:Bundle = Bundle.main) {
+    public func load(fromBundle bundle:Bundle = Bundle.main) {
         let fontNames = loadFonts(fromPath: bundle.bundlePath)
         parse(fontNames: fontNames)
     }

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		26ABBBF0D1D31F104C6E3491 /* Pods_Font_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710BBF0CC8751307CD523217 /* Pods_Font_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
@@ -81,6 +80,8 @@
 		667130251BBF497F008FA9D2 /* SourceSansPro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667130241BBF497F008FA9D2 /* SourceSansPro.swift */; };
 		667130281BBF5442008FA9D2 /* OptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667130271BBF5442008FA9D2 /* OptionsController.swift */; };
 		6671302B1BC0A9E3008FA9D2 /* FontViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6671302A1BC0A9E3008FA9D2 /* FontViewModel.swift */; };
+		66A0008B1E8F261B0047A3EA /* ExampleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A0008A1E8F261B0047A3EA /* ExampleCollectionViewController.swift */; };
+		66A0008F1E8F26660047A3EA /* ExampleCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A0008E1E8F26660047A3EA /* ExampleCollectionCell.swift */; };
 		66C0871A1E8B26010084AFA7 /* FiraCode-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66C087151E8B25EF0084AFA7 /* FiraCode-Bold.ttf */; };
 		66C0871B1E8B26010084AFA7 /* FiraCode-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66C087161E8B25EF0084AFA7 /* FiraCode-Light.ttf */; };
 		66C0871C1E8B26010084AFA7 /* FiraCode-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66C087171E8B25EF0084AFA7 /* FiraCode-Medium.ttf */; };
@@ -119,7 +120,6 @@
 		607FACD01AFB9204008FA782 /* Font_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Font_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -193,6 +193,8 @@
 		667130241BBF497F008FA9D2 /* SourceSansPro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceSansPro.swift; sourceTree = "<group>"; };
 		667130271BBF5442008FA9D2 /* OptionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsController.swift; sourceTree = "<group>"; };
 		6671302A1BC0A9E3008FA9D2 /* FontViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontViewModel.swift; sourceTree = "<group>"; };
+		66A0008A1E8F261B0047A3EA /* ExampleCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleCollectionViewController.swift; sourceTree = "<group>"; };
+		66A0008E1E8F26660047A3EA /* ExampleCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExampleCollectionCell.swift; path = Views/ExampleCollectionCell.swift; sourceTree = "<group>"; };
 		66C087151E8B25EF0084AFA7 /* FiraCode-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraCode-Bold.ttf"; sourceTree = "<group>"; };
 		66C087161E8B25EF0084AFA7 /* FiraCode-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraCode-Light.ttf"; sourceTree = "<group>"; };
 		66C087171E8B25EF0084AFA7 /* FiraCode-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraCode-Medium.ttf"; sourceTree = "<group>"; };
@@ -274,15 +276,15 @@
 		607FACD21AFB9204008FA782 /* Example for Font */ = {
 			isa = PBXGroup;
 			children = (
-				667130291BC0A9BD008FA9D2 /* Models */,
-				667130261BBF541A008FA9D2 /* Controllers */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				667130261BBF541A008FA9D2 /* Controllers */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				667130291BC0A9BD008FA9D2 /* Models */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 				667130081BBF48D9008FA9D2 /* Typefaces */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				66A0008D1E8F264D0047A3EA /* Views */,
 			);
 			name = "Example for Font";
 			path = Font;
@@ -429,6 +431,7 @@
 			isa = PBXGroup;
 			children = (
 				667130271BBF5442008FA9D2 /* OptionsController.swift */,
+				66A0008A1E8F261B0047A3EA /* ExampleCollectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -439,6 +442,14 @@
 				6671302A1BC0A9E3008FA9D2 /* FontViewModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		66A0008D1E8F264D0047A3EA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				66A0008E1E8F26660047A3EA /* ExampleCollectionCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		66C087141E8B25D50084AFA7 /* Fira Code */ = {
@@ -748,7 +759,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				66A0008F1E8F26660047A3EA /* ExampleCollectionCell.swift in Sources */,
+				66A0008B1E8F261B0047A3EA /* ExampleCollectionViewController.swift in Sources */,
 				667130251BBF497F008FA9D2 /* SourceSansPro.swift in Sources */,
 				6671302B1BC0A9E3008FA9D2 /* FontViewModel.swift in Sources */,
 				667130281BBF5442008FA9D2 /* OptionsController.swift in Sources */,

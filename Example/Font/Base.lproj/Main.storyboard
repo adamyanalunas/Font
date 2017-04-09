@@ -11,63 +11,67 @@
     </dependencies>
     <scenes>
         <!--Font-->
-        <scene sceneID="ufC-wZ-h7g">
+        <scene sceneID="6Dw-rg-qWH">
             <objects>
-                <viewController title="Font" id="vXZ-lx-hvc" customClass="ViewController" customModule="Font_Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                <collectionViewController storyboardIdentifier="ExampleCollectionViewController" title="Font" id="CgE-vB-lgC" customClass="ExampleCollectionViewController" customModule="Font_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="Nsf-Xo-FFM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bXb-zs-96r">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The quick brown fox jumps over the lazy dog" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxZ-3i-O4V">
-                                        <rect key="frame" x="20" y="60" width="335" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VvE-Q2-K2E">
+                            <size key="itemSize" width="350" height="150"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ExampleCollectionCell" id="2Nm-zA-ePE" customClass="ExampleCollectionCell" customModule="Font_Example" customModuleProvider="target">
+                                <rect key="frame" x="12.5" y="0.0" width="350" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="150"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The quick brown fox jumps over the lazy dog" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rcu-hl-to4">
+                                            <rect key="frame" x="28" y="28" width="294" height="94"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="wxZ-3i-O4V" secondAttribute="trailing" constant="20" id="J3D-4F-Kq4"/>
-                                    <constraint firstAttribute="bottom" secondItem="wxZ-3i-O4V" secondAttribute="bottom" constant="458" id="LsX-hd-k2g"/>
-                                    <constraint firstItem="wxZ-3i-O4V" firstAttribute="top" secondItem="bXb-zs-96r" secondAttribute="top" constant="60" id="bdI-qc-Q1Q"/>
-                                    <constraint firstItem="wxZ-3i-O4V" firstAttribute="centerX" secondItem="bXb-zs-96r" secondAttribute="centerX" id="oCe-yq-5Ce"/>
-                                    <constraint firstItem="wxZ-3i-O4V" firstAttribute="leading" secondItem="bXb-zs-96r" secondAttribute="leading" constant="20" id="wse-9Y-uye"/>
+                                    <constraint firstItem="Rcu-hl-to4" firstAttribute="leading" secondItem="2Nm-zA-ePE" secondAttribute="leadingMargin" constant="20" id="0Re-HQ-kjH"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="Rcu-hl-to4" secondAttribute="trailing" constant="20" id="AW3-zs-U3N"/>
+                                    <constraint firstItem="Rcu-hl-to4" firstAttribute="top" secondItem="2Nm-zA-ePE" secondAttribute="topMargin" constant="20" id="pi6-be-NWA"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="Rcu-hl-to4" secondAttribute="bottom" constant="20" id="w0b-Ti-yIr"/>
                                 </constraints>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="bXb-zs-96r" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="NTw-TE-Hzh"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="bXb-zs-96r" secondAttribute="bottom" id="kid-ML-MBc"/>
-                            <constraint firstItem="bXb-zs-96r" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="ma4-Sr-9y1"/>
-                            <constraint firstAttribute="trailing" secondItem="bXb-zs-96r" secondAttribute="trailing" id="yl7-tX-BPb"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Font" id="t7Z-0T-ort">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="eB5-Qz-wf2">
+                                <connections>
+                                    <outlet property="label" destination="Rcu-hl-to4" id="7qk-fU-lf8"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="CgE-vB-lgC" id="7UK-5Y-6hR"/>
+                            <outlet property="delegate" destination="CgE-vB-lgC" id="zG0-08-2nZ"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="M8W-zR-LC6">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="rIL-qh-t6r">
                             <connections>
-                                <segue destination="szh-rz-UrB" kind="show" id="E7Y-jS-H7s"/>
+                                <action selector="handleAddExampleWithButton:" destination="CgE-vB-lgC" id="Ao7-WP-yEm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="example" destination="wxZ-3i-O4V" id="7aX-vz-XPK"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sWQ-0m-ale" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1219" y="585"/>
+            <point key="canvasLocation" x="1218" y="-64"/>
         </scene>
-        <!--Options Controller-->
+        <!--Options-->
         <scene sceneID="VcQ-6Q-JuO">
             <objects>
-                <tableViewController id="szh-rz-UrB" customClass="OptionsController" customModule="Font_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="OptionsController" title="Options" id="szh-rz-UrB" customClass="OptionsController" customModule="Font_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="cpC-dh-p3j">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -250,6 +254,14 @@
                             <outlet property="delegate" destination="szh-rz-UrB" id="pc0-QG-2MP"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="3Ya-ZR-99q">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="vom-w7-7pl">
+                            <connections>
+                                <action selector="finishEditWithButton:" destination="szh-rz-UrB" id="J6S-D4-oS4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="italicSwitch" destination="bFe-EU-cjV" id="7Jp-zB-3H0"/>
                         <outlet property="nameLabel" destination="3Dc-l8-Juw" id="ens-4W-Q81"/>
@@ -262,25 +274,43 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vtf-r3-tvq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1921" y="584"/>
+            <point key="canvasLocation" x="2673" y="-64"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4DT-ov-dzM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jff-Ul-eH2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ub5-jD-0ar">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ub5-jD-0ar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="mgm-fr-ipi"/>
+                        <segue destination="CgE-vB-lgC" kind="relationship" relationship="rootViewController" id="gI7-nO-JVy"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wic-7D-XQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="332" y="585"/>
+            <point key="canvasLocation" x="436" y="-64"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tfd-XF-aix">
+            <objects>
+                <navigationController storyboardIdentifier="OptionsNavigation" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HmY-8o-qFj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="B1b-hV-Pwp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="szh-rz-UrB" kind="relationship" relationship="rootViewController" id="7UW-Ye-77k"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X0l-ob-EXR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1973.5999999999999" y="-64.31784107946028"/>
         </scene>
     </scenes>
 </document>

@@ -10,6 +10,10 @@ import Font
 import Foundation
 import UIKit
 
+//extension Selector {
+//    static let doneSelector = #selector(OptionsController.finishEdit(button:))
+//}
+
 class OptionsController: UITableViewController {
     
     @IBOutlet weak var nameLabel:UILabel!
@@ -21,11 +25,13 @@ class OptionsController: UITableViewController {
     @IBOutlet weak var widthLabel:UILabel!
     
     var families:[FontFamily] = []
-    var model:FontViewModel! {
-        didSet {
-            delegate?.didUpdateFont(using: model)
-        }
-    }
+    var indexPath:IndexPath?
+    var model:FontViewModel? //{
+//        didSet {
+//            guard let model = model else { return }
+//            delegate?.didUpdateFont(using: model)
+//        }
+//    }
     
     var nameSelectorModel:Picker!
     var weightSelectorModel:Picker!
@@ -48,10 +54,15 @@ class OptionsController: UITableViewController {
         
         nameSelector.reloadAllComponents()
         weightSelector.reloadAllComponents()
+        
+//        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: .doneSelector)
+//        navigationController?.navigationBar.topItem?.rightBarButtonItem = doneButton
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        guard let model = model else { return }
         
         sizeField.text = String(describing: model.size)
         italicSwitch.isOn = model.isItalic
@@ -69,9 +80,9 @@ class OptionsController: UITableViewController {
     
     // MARK: - Model consumption
     
-    func generateModel() -> FontViewModel {
+    func generateModel() -> FontViewModel? {
         guard let size = NumberFormatter().number(from: sizeField.text!)
-            else { return model }
+            else { return nil }
         
         return FontViewModel(
             family: families[nameSelector.selectedRow(inComponent: 0)],
@@ -118,6 +129,13 @@ class OptionsController: UITableViewController {
     
     @IBAction func switchStyle() {
         updateModel()
+    }
+    
+    @IBAction func finishEdit(button:UIBarButtonItem) {
+        guard let model = model else { return }
+//        delegate?.didUpdateFont(using: model)
+        delegate?.didUpdate(model: model, atIndexPath: indexPath)
+        dismiss(animated: true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
