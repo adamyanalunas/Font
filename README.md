@@ -9,15 +9,13 @@
 
 You can either run `pod try Font` from your command line or clone the repo and run `pod install` from the Example directory followed by loading up the Example workspace.
 
-## Swift 3.0
+## Swift 4.0
 
-Font is now Swift 3.0 ready. If you need Swift 2.3 support, the `swift2.3` branch is available but it will not receive updates except for maybe the occasional bugfix.
+Font is Swift 4.0 ready. If you need builds for previous versions of Swift try the [`swift3`](https://github.com/adamyanalunas/font/tree/swift3) or [`swift2.3`](https://github.com/adamyanalunas/font/tree/swift2.3) branches. While these are available they will not receive updates except for the occasional bugfix.
 
-Changes required by the 3.0 change:
+Changes required by the 4.0 change:
 
-* Initial argument names are now required on many methods
-* `FontWeight` and `FontStyle` values are lowercased
-* `.bold` was added to `FontWeight`
+*
 
 ## Example
 

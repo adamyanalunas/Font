@@ -1,36 +1,22 @@
 PODS:
-  - Font (0.1.0)
-  - Nimble (5.0.0-alpha.30p1)
-  - Quick (0.9.3)
+  - Font (0.2.0)
+  - Nimble (7.0.1)
+  - Quick (1.1.0)
 
 DEPENDENCIES:
   - Font (from `../`)
-  - Nimble (from `https://github.com/Quick/Nimble.git`, branch `master`)
-  - Quick (from `https://github.com/Quick/Quick.git`, branch `swift-3.0`)
+  - Nimble
+  - Quick
 
 EXTERNAL SOURCES:
   Font:
-    :path: "../"
-  Nimble:
-    :branch: master
-    :git: https://github.com/Quick/Nimble.git
-  Quick:
-    :branch: swift-3.0
-    :git: https://github.com/Quick/Quick.git
-
-CHECKOUT OPTIONS:
-  Nimble:
-    :commit: fcc28b23f57b30382e5f182c238674694d7174cb
-    :git: https://github.com/Quick/Nimble.git
-  Quick:
-    :commit: 8f2bc636ecfa2cc20696f62548b38d4ab943e299
-    :git: https://github.com/Quick/Quick.git
+    :path: ../
 
 SPEC CHECKSUMS:
-  Font: 53e368a3f4bb5873628c7c2e6124b9d03e57dda2
-  Nimble: c5b995b4cd57789ec44b0cfb79640fc00e61a8c7
-  Quick: 31fb576b6cbb6b028cc5e0016e4366accbb346f5
+  Font: 29387bb29b38d0551e99119f8e146cac0f9537ee
+  Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
+  Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
 
-PODFILE CHECKSUM: b09831f765a666fda57a51ba53e4df4746dd0a2a
+PODFILE CHECKSUM: 5b8edb1f3f03257d05596a2d980521f18bcd0181
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.3.1

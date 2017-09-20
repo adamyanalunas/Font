@@ -14,7 +14,7 @@ import UIKit
 
 extension UIFont {
     func size() -> NSNumber {
-        return self.fontDescriptor.fontAttributes[UIFontDescriptorSizeAttribute] as! NSNumber
+        return self.fontDescriptor.fontAttributes[UIFontDescriptor.AttributeName.size] as! NSNumber
     }
 }
 
