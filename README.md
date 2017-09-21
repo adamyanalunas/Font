@@ -15,7 +15,7 @@ Font is Swift 4.0 ready. If you need builds for previous versions of Swift try t
 
 Changes required by the 4.0 change:
 
-*
+* `fromUIFont` was removed. There will be no replacement until `1.0` ships with an entirely new API.
 
 ## Example
 
