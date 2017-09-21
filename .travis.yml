@@ -10,5 +10,5 @@ before_install:
 - bundle exec pod repo update --silent
 - bundle exec pod install --project-directory=Example
 script:
-- set -o pipefail && xcodebuild test -workspace Example/Font.xcworkspace -scheme Font-Example -sdk iphonesimulator -destination platform="iOS Simulator,OS=latest,name=iPhone 6" ONLY_ACTIVE_ARCH=NO | xcpretty -c
+- set -o pipefail && xcodebuild clean test -workspace Example/Font.xcworkspace -scheme Font-Example -sdk iphonesimulator -destination platform="iOS Simulator,OS=latest,name=iPhone 6" ONLY_ACTIVE_ARCH=NO | xcpretty -c
 - bundle exec pod lib lint --quick
