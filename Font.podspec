@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "Font"
-  s.version          = "0.2.0"
+  s.version          = "0.4.0"
   s.summary          = "Working with UIFont for custom fonts sucks—especially Dynamic Type. Font makes things easier."
 
 # This description is used to generate tags and improve search results.
