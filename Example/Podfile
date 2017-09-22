@@ -10,8 +10,9 @@ target 'Font_Example' do
   target 'Font_Tests' do
     inherit! :search_paths
 
-    pod 'Quick'
-    pod 'Nimble'
+    # NOTE: Edge builds needed to get past compilation crasher
+    pod 'Quick', :git => 'https://github.com/Quick/Quick'
+    pod 'Nimble', :git => 'https://github.com/Quick/Nimble'
   end
 end
 
