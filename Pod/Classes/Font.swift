@@ -69,14 +69,6 @@ public struct Font: Equatable {
         return adjustedSize
     }
     
-    public static func fromUIFont(_ font:UIFont) -> Font {
-        let descriptor = font.fontDescriptor
-        let name = descriptor.fontAttributes[UIFontDescriptorNameAttribute] as! String
-        let size = descriptor.fontAttributes[UIFontDescriptorSizeAttribute] as! CGFloat
-        
-        return Font.init(fontName: name, size: size)
-    }
-    
     public func generate(_ sizeClass:UIContentSizeCategory = UIApplication.shared.preferredContentSizeCategory, resizer:FontScaler? = nil) -> UIFont? {
         let adjustedSize = resizer != nil ? resizer!(sizeClass) : dynamicSize(sizeClass)
         return UIFont(name: fontName, size: adjustedSize)

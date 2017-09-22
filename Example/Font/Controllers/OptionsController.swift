@@ -62,7 +62,7 @@ class OptionsController: UITableViewController {
         
         return FontViewModel(
             name: nameLabel.text!,
-            size: CGFloat(size),
+            size: CGFloat(truncating: size),
             style: (italicSwitch.isOn ? .italic : .none),
             weight: FontWeight(type: weightLabel.text!)
         )
