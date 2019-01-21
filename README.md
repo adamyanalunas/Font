@@ -11,7 +11,7 @@ You can either run `pod try Font` from your command line or clone the repo and r
 
 ## Swift 4.0
 
-Font is Swift 4.0 ready. If you need builds for previous versions of Swift try the [`swift3`](https://github.com/adamyanalunas/font/tree/swift3) or [`swift2.3`](https://github.com/adamyanalunas/font/tree/swift2.3) branches. While these are available they will not receive updates except for the occasional bugfix.
+Font is Swift 4.2 ready. If you need builds for previous versions of Swift try the [`swift3`](https://github.com/adamyanalunas/font/tree/swift3) or [`swift2.3`](https://github.com/adamyanalunas/font/tree/swift2.3) branches. While these are available they will not receive updates except for the occasional bugfix.
 
 Changes required by the 4.0 change:
 
