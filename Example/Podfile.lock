@@ -1,5 +1,5 @@
 PODS:
-  - Font (0.4.0)
+  - Font (0.4.1)
   - Nimble (7.3.2)
   - Quick (1.3.2)
 
@@ -18,7 +18,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Font: 5507f7bfe5dc91e84726fa534520b436a8d82e75
+  Font: 37df815dbb19c8b50126d8fdce237c57ff1d887e
   Nimble: 5e94a8cacb355943c6c87198035dc4adbb0f10e4
   Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
 
